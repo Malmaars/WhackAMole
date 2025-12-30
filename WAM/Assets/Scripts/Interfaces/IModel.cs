@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IUpdate
+public interface IModel : IUpdate, IStart
 {
-    public void OnUpdate(float _DeltaTime);
+
 }
