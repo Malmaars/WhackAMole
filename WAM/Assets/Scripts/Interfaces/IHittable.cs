@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhackAMoleModel
+public interface IHittable
 {
-
+    public void OnHit();
 }
