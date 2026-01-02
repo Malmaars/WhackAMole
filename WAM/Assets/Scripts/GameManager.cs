@@ -35,5 +35,6 @@ public class GameManager : MonoBehaviour
 
         scoreController.Initialize(scoreView, scoreModel);
 
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 }
