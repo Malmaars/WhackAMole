@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IScoreModel : IModel
+public interface IScoreModel : IModel, IBusListener
 {
     public PointManager pointManager { get; set; }
     public int Score { get; set; }

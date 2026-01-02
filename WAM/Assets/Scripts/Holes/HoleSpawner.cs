@@ -16,7 +16,7 @@ public class HoleSpawner
         List<IHole> spawnedHoles = new List<IHole>();
         for(int i = 0; i < _amountOfHoles; i++)
         {
-            IHole h = new Hole(Vector2.zero);
+            IHole h = new Hole(i);
             spawnedHoles.Add(h);
         }
         return spawnedHoles;

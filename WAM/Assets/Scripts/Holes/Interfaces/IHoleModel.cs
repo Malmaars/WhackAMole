@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IHoleModel : IModel
+public interface IHoleModel : IModel, IBusListener
 {
-    List<IHole> Holes { get; }
-    public void TouchHoles(List<Vector2> _touches);
+    public void TryHitHole(int _ID, IHole _hole);
 }

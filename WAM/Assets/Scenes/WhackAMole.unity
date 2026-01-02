@@ -804,8 +804,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 919242784}
-  - component: {fileID: 919242786}
   - component: {fileID: 919242785}
+  - component: {fileID: 919242786}
   m_Layer: 5
   m_Name: Holes
   m_TagString: Untagged
@@ -844,6 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e44a8df157a93e4cae392b4902d9dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holeAmount: 1
 --- !u!114 &919242786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,9 +854,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 919242783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db88ead817ce76a4c85d76ace4775c70, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ee1af1a6dd6a3c4a878e42cbb2015ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holePrefab: {fileID: 4946683452861023350, guid: 772d5f5f7f97ba34caf116a2ee0ff119, type: 3}
+  parent: {fileID: 919242784}
 --- !u!1 &1248846866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreController: {fileID: 2073254294}
   scoreView: {fileID: 2073254295}
+  holeController: {fileID: 919242785}
+  holeViewFactory: {fileID: 919242786}
 --- !u!4 &1874699926
 Transform:
   m_ObjectHideFlags: 0

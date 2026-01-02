@@ -15,8 +15,6 @@ public class ScoreController : MonoBehaviour
 
     private void Start()
     {
-        model = new ScoreModel();
-
         model.OnStart();
         model.ScoreChanged += OnScoreChange;
     }
@@ -27,7 +25,16 @@ public class ScoreController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.F))
             model.AddPoints(1);
-        
+    }
+
+    public void ChangePoints(int _points)
+    {
+        if (_points == 0) 
+            return;
+        else if (_points > 0) 
+            model.AddPoints(_points);
+        else 
+            model.RemovePoints(_points);
     }
 
     public void OnScoreChange(int _score)

@@ -16,20 +16,24 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     HoleController holeController;
     [SerializeField]
-    HoleView holeView;
+    HoleFactory holeViewFactory;
     IHoleModel holeModel;
 
 
     private void Awake()
     {
+        IEventBus bus = new EventBus();
+        //initialize hole system
+        holeModel = new HoleModel();
+        holeModel.GetOnBus(bus);
+
+        holeController.Initialize(holeModel, holeViewFactory);
+        
         //Initializing score system
         scoreModel = new ScoreModel();
+        scoreModel.GetOnBus(bus);
 
         scoreController.Initialize(scoreView, scoreModel);
 
-        //initialize hole system
-        holeModel = new HoleModel();
-
-        holeController.Initialize(holeView, holeModel);
     }
 }

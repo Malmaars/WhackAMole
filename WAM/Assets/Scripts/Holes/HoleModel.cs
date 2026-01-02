@@ -1,20 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HoleModel : IHoleModel
 {
-    public void OnStart()
+    public IEventBus EventBus { get; set; }
+
+    public void OnStart() { }
+
+    public void OnUpdate(float _DeltaTime) { }
+
+    public void TryHitHole(int _ID, IHole _hole)
     {
+        EventBus.Publish(new HoleHitEvent(_hole.OnClick()));
     }
 
-    public void OnUpdate(float _DeltaTime)
+    public void GetOnBus(IEventBus _bus)
     {
-    }
-
-    public void TouchHoles(List<Vector2> _touches)
-    {
-        //check if any holes have been hit, and act accordingly
-
+        EventBus = _bus;
     }
 }
