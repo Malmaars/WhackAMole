@@ -332,6 +332,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2972012647257109254, guid: 1067ccccfceca2a4d9bf11c9506f2307, type: 3}
   m_PrefabInstance: {fileID: 3629701211107515669}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &895939253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4257844788070874440, guid: 1067ccccfceca2a4d9bf11c9506f2307, type: 3}
+  m_PrefabInstance: {fileID: 3629701211107515669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acee5171960deab479d71f174e4ab5c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &895939254 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1319375880961124119, guid: 1067ccccfceca2a4d9bf11c9506f2307, type: 3}
+  m_PrefabInstance: {fileID: 3629701211107515669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0a6bc95caa9614f9276adb2941117f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &919242783
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +458,8 @@ MonoBehaviour:
   highScoreButton: {fileID: 6008059070851053128}
   scoreController: {fileID: 2073254294}
   scoreView: {fileID: 2073254295}
+  timerController: {fileID: 895939254}
+  timerView: {fileID: 895939253}
   holeController: {fileID: 919242785}
   holeViewFactory: {fileID: 919242786}
 --- !u!4 &1874699926

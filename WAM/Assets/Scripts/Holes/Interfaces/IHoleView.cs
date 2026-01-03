@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IHoleView : IView
+public interface IHoleView
 {
 
 }

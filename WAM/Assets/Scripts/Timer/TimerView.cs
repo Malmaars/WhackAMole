@@ -1,32 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ScoreView : MonoBehaviour, IScoreView, IBusListener
+public class TimerView : MonoBehaviour, ITimerView
 {
     public IEventBus eventBus { get; set; }
+
     public GameObject[] Visuals { get { return visuals; } set { visuals = value; } }
     public GameObject[] visuals;
+
+    public TextMeshProUGUI TimerText { get { return timerText; } set { timerText = value; } }
+    public TextMeshProUGUI timerText;
+    
     public bool active { get; set; }
-    public TextMeshProUGUI ScoreTMP { get { return scoreTMP; } set { scoreTMP = value; } }
 
-    [SerializeField]
-    TextMeshProUGUI scoreTMP;
-    public void ResetVisuals()
+    public void UpdateTimerVisual(float _currentTime)
     {
-        scoreTMP.text = "0";
-    }
-
-    public void UpdateScoreVisuals(int _points)
-    {
-        scoreTMP.text = _points.ToString();
+        TimerText.text = (Mathf.Ceil(_currentTime)).ToString();
     }
 
     public void GetOnBus(IEventBus _bus)
     {
         eventBus = _bus;
         eventBus.Subscribe<StartGameEvent>(EnableOnEvent);
+        eventBus.Subscribe<EndGameEvent>(DisableOnEvent);
         eventBus.Subscribe<ShowMenuEvent>(DisableOnEvent);
     }
 
@@ -40,16 +39,10 @@ public class ScoreView : MonoBehaviour, IScoreView, IBusListener
         Enable();
     }
 
-    void ShowVisuals()
+    public void Disable()
     {
-        foreach (GameObject ob in Visuals)
-        {
-            ob.SetActive(true);
-        }
-    }
-    void HideVisuals()
-    {
-        foreach (GameObject ob in Visuals)
+        active = false;
+        foreach (GameObject ob in visuals)
         {
             ob.SetActive(false);
         }
@@ -57,13 +50,10 @@ public class ScoreView : MonoBehaviour, IScoreView, IBusListener
 
     public void Enable()
     {
-        ShowVisuals();
         active = true;
-    }
-
-    public void Disable()
-    {
-        HideVisuals();
-        active = false;
+        foreach (GameObject ob in visuals)
+        {
+            ob.SetActive(true);
+        }
     }
 }

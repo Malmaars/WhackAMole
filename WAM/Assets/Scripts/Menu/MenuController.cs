@@ -12,6 +12,16 @@ public class MenuController : MonoBehaviour, IActive, IBusListener
     public bool active { get; set; }
     public IEventBus eventBus { get;  set ; }
 
+    private void Start()
+    {
+        model.OnStart();
+    }
+
+    private void Update()
+    {
+        model.OnUpdate(Time.deltaTime);
+    }
+
     public void Initialize(IMenuView _view, IMenuModel _model, IMenuButton _startButton, IMenuButton _highScoreButton)
     {
         view = _view;
@@ -23,7 +33,7 @@ public class MenuController : MonoBehaviour, IActive, IBusListener
         HighScoreButton.Clicked += ShowHighScores;
     }
 
-    void ShowMenu(ShowMenuEvent _event)
+    void ShowMenu(IDomainEvent _event)
     {
         Enable();
     }

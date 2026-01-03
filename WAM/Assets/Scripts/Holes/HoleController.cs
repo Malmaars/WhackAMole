@@ -58,13 +58,13 @@ public class HoleController : MonoBehaviour, IActive, IBusListener
         model.TryHitHole(_ID, _hole);
     }
 
-    void InitializeGame(StartGameEvent _event)
+    void InitializeGame(IDomainEvent _event)
     {
         Enable();
         SpawnHoles(6);
     }
 
-    public void EndGame(EndGameEvent _event)
+    public void EndGame(IDomainEvent _event)
     {
         RemoveAndDisable();
     }

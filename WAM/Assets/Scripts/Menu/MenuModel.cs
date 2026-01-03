@@ -19,14 +19,9 @@ public class MenuModel : IMenuModel
         eventBus.Publish(new ShowHighScoresEvent());
     }
 
-    public void OnStart()
-    {
+    public void OnStart() { }
 
-    }
-
-    public void OnUpdate(float _DeltaTime)
-    {
-    }
+    public void OnUpdate(float _DeltaTime) { }
 
     public void GetOnBus(IEventBus _bus)
     {

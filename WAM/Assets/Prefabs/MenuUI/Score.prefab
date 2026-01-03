@@ -395,6 +395,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dddb1e09641a1b49af437a9b6d27269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visuals:
+  - {fileID: 629587200543953561}
+  - {fileID: 4407158388921964675}
+  - {fileID: 2067582026919309653}
   scoreTMP: {fileID: 1410918237462935518}
 --- !u!114 &2546295242932336258
 MonoBehaviour:

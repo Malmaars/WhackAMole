@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScoreController : MonoBehaviour
 {
+
     IScoreView view;
     IScoreModel model;
 
@@ -22,9 +23,6 @@ public class ScoreController : MonoBehaviour
     private void Update()
     {
         model.OnUpdate(Time.deltaTime);
-
-        if(Input.GetKey(KeyCode.F))
-            model.AddPoints(1);
     }
 
     public void ChangePoints(int _points)
@@ -41,4 +39,6 @@ public class ScoreController : MonoBehaviour
     {
         view.UpdateScoreVisuals(_score);
     }
+
+    
 }

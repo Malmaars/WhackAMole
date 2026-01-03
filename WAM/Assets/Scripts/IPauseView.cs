@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPauseView : IView
+public interface IPauseView
 {
     public void EnablePauseMenu()
     {

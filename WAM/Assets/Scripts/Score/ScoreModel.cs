@@ -43,14 +43,20 @@ public class ScoreModel : IScoreModel
         eventBus = _bus;
         eventBus.Subscribe<HoleHitEvent>(OnHoleHit);
         eventBus.Subscribe<StartGameEvent>(GameStart);
+        eventBus.Subscribe<EndGameEvent>(EndGame);
     }
 
     public void OnHoleHit(HoleHitEvent _event)
     {
         AddPoints(_event.Points);
     }
-    public void GameStart(StartGameEvent _event)
+    public void GameStart(IDomainEvent _event)
     {
         SetPoints(0);
+    }
+
+    public void EndGame(IDomainEvent _event)
+    {
+
     }
 }

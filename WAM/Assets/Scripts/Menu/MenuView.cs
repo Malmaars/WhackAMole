@@ -27,8 +27,4 @@ public class MenuView : MonoBehaviour, IMenuView
             ob.SetActive(true);
         }
     }
-
-    public void ResetVisuals()
-    {
-    }
 }

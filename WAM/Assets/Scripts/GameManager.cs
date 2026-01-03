@@ -25,6 +25,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     ScoreView scoreView;
     IScoreModel scoreModel;
+    
+    //Timer
+    [Header("Timer Components")]
+    [SerializeField]
+    TimerController timerController;
+    [SerializeField]
+    TimerView timerView;
+    ITimerModel timerModel;
 
     //Holes
     [Header("Hole Components")]
@@ -47,8 +55,17 @@ public class GameManager : MonoBehaviour
         //Initializing score system
         scoreModel = new ScoreModel();
         scoreModel.GetOnBus(bus);
+        scoreView.GetOnBus(bus);
 
         scoreController.Initialize(scoreView, scoreModel);
+
+        //Initializing Timer system
+        timerModel = new TimerModel(new CountDownTimer());
+        timerModel.GetOnBus(bus);
+        timerView.GetOnBus(bus);
+
+        timerController.Initialize(timerView, timerModel);
+
 
         //Initializing menu system
         menuModel = new MenuModel();
@@ -56,6 +73,7 @@ public class GameManager : MonoBehaviour
 
         menuController.Initialize(menuView, menuModel, startButton, highScoreButton);
 
+        bus.Publish(new ShowMenuEvent());
 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
