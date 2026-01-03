@@ -18,6 +18,7 @@ public class HoleFactory : MonoBehaviour
 
     public HoleView Create(int _ID, IHole hole)
     {
+        //for now the only number of holes is 6. I won't add more since this won't be released, and making highscores for each amount of holes seems unnecessary
         if(amountOfHoles != 6)
         {
             Debug.LogError("Holes other than 6 are not supported");

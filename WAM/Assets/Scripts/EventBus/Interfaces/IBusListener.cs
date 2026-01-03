@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IBusListener
 {
-    public IEventBus EventBus { get; set; }
+    public IEventBus eventBus { get; set; }
     public void GetOnBus(IEventBus _bus);
 }

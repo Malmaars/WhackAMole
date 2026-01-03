@@ -6,6 +6,10 @@ public class PointManager
 {
     public int points { get; private set; }
 
+    public void SetPoints(int _points)
+    {
+        points = _points;
+    }
     public void AddPoints(int _points)
     {
         points += _points;

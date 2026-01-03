@@ -5,7 +5,21 @@ using UnityEngine;
 //The GameManager solely handles the interactions between subsystems
 public class GameManager : MonoBehaviour
 {
+    //Menu
+    [Header("Menu Components")]
+    [SerializeField]
+    MenuController menuController;
+    [SerializeField]
+    MenuView menuView;
+    [SerializeReference]
+    BasicMenuButton startButton;
+    [SerializeReference]
+    BasicMenuButton highScoreButton;
+    IMenuModel menuModel;
+
+
     //Score
+    [Header("Score Components")]
     [SerializeField]
     ScoreController scoreController;
     [SerializeField]
@@ -13,12 +27,12 @@ public class GameManager : MonoBehaviour
     IScoreModel scoreModel;
 
     //Holes
+    [Header("Hole Components")]
     [SerializeField]
     HoleController holeController;
     [SerializeField]
     HoleFactory holeViewFactory;
     IHoleModel holeModel;
-
 
     private void Awake()
     {
@@ -28,12 +42,20 @@ public class GameManager : MonoBehaviour
         holeModel.GetOnBus(bus);
 
         holeController.Initialize(holeModel, holeViewFactory);
-        
+        holeController.GetOnBus(bus);
+
         //Initializing score system
         scoreModel = new ScoreModel();
         scoreModel.GetOnBus(bus);
 
         scoreController.Initialize(scoreView, scoreModel);
+
+        //Initializing menu system
+        menuModel = new MenuModel();
+        menuModel.GetOnBus(bus);
+
+        menuController.Initialize(menuView, menuModel, startButton, highScoreButton);
+
 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
     }

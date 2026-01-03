@@ -5,19 +5,35 @@ using UnityEngine;
 
 public class HoleModel : IHoleModel
 {
-    public IEventBus EventBus { get; set; }
+    public IEventBus eventBus { get; set; }
+
+    public bool active { get; set; }
 
     public void OnStart() { }
 
     public void OnUpdate(float _DeltaTime) { }
 
+
+    //Function to call whenever a hole is hit
     public void TryHitHole(int _ID, IHole _hole)
     {
-        EventBus.Publish(new HoleHitEvent(_hole.OnClick()));
+        if (!active)
+            return;
+
+        eventBus.Publish(new HoleHitEvent(_hole.OnClick()));
     }
 
     public void GetOnBus(IEventBus _bus)
     {
-        EventBus = _bus;
+        eventBus = _bus;
+    }
+    public void Enable()
+    {
+        active = true;
+    }
+
+    public void Disable()
+    {
+        active = false;
     }
 }

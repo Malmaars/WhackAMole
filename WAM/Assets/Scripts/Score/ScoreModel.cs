@@ -8,13 +8,10 @@ public class ScoreModel : IScoreModel
 {
     public PointManager pointManager { get; set; }
 
-    public int Score { get { return pointManager.points; }
-        set { score = value; }
-    }
-
-    public IEventBus EventBus { get; set; }
-
+    public int Score { get { return pointManager.points; } set { score = value; } }
     int score;
+
+    public IEventBus eventBus { get; set; }
 
     //call this event whenever the score changes
     public event Action<int> ScoreChanged;
@@ -29,6 +26,11 @@ public class ScoreModel : IScoreModel
         pointManager.AddPoints(_points);
         ScoreChanged.Invoke(Score);
     }
+    public void SetPoints(int _points)
+    {
+        pointManager.SetPoints(_points);
+        ScoreChanged.Invoke(Score);
+    }
 
     public void RemovePoints(int _points)
     {
@@ -38,12 +40,17 @@ public class ScoreModel : IScoreModel
 
     public void GetOnBus(IEventBus _bus)
     {
-        EventBus = _bus;
-        EventBus.Subscribe<HoleHitEvent>(OnHoleHit);
+        eventBus = _bus;
+        eventBus.Subscribe<HoleHitEvent>(OnHoleHit);
+        eventBus.Subscribe<StartGameEvent>(GameStart);
     }
 
     public void OnHoleHit(HoleHitEvent _event)
     {
         AddPoints(_event.Points);
+    }
+    public void GameStart(StartGameEvent _event)
+    {
+        SetPoints(0);
     }
 }
