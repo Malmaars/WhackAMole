@@ -25,10 +25,14 @@ public class Hole : IHole
 
     public int OnClick() 
     {
-        int points = 1;
+        int points = 0;
         //click on the thing in the hole, and maybe activate something special depending on the type of hole
         if (CurrentHoleEntity != null)
             points += CurrentHoleEntity.OnClick();
+
+        //give a penalty when hitting a hole that does not have a mole in it
+        else
+            points -= 1;
 
         return points;
     }
