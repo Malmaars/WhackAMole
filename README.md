@@ -1,7 +1,7 @@
 # WhackAMole
 Runs on Android.
 
-# Design Pattern Choices
+# Design Choices
 To make this game, I've chosen to go with the MVC design pattern. This means I have a view, controller, and model.
 The view only manages the visuals, the model implements any functionality, and the controller acts as a bridge between the two. The controller also handles all interactions with the player, and takes the correct corresponding actions.
 
