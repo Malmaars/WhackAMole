@@ -11,8 +11,10 @@ public class HoleModel : IHoleModel
 
     public void OnStart() { }
 
-    public void OnUpdate(float _DeltaTime) { }
-
+    public void OnUpdate(float _DeltaTime) 
+    {
+        
+    }
 
     //Function to call whenever a hole is hit
     public void TryHitHole(int _ID, IHole _hole)

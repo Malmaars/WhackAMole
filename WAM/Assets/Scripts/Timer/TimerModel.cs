@@ -25,8 +25,8 @@ public class TimerModel : ITimerModel
 
     void InitializeTimer(IDomainEvent _event)
     {
-        //for now I seet this to 60 seconds, but it's possible to set a different time
-        timer.ResetTimer(5);
+        //for now I seet this to 30 seconds, but it's possible to set a different time
+        timer.ResetTimer(30);
         timer.Enable();
     }
 

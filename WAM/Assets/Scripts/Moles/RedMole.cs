@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mole : IHoleable
+public class RedMole : IHoleable
 {
     public int Value { get; set; }
     public int Health { get; set; } = 1;
-    public string ResourcesVisual { get; set; } = "Holeables/Mole";
-    public string holeableName { get; set; } = "Mole";
+    public string ResourcesVisual { get; set; } = "Holeables/RedMole";
+    public string holeableName { get; set; } = "Red Mole";
 
     public int OnClick()
     {
         Health--;
         //give one point
-        return 1;
+        return -1;
     }
 }

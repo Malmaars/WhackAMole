@@ -10,4 +10,9 @@ public interface IHoleable: IClickable
 
     //the amount of points something in the hole is worth
     public int Value { get; set; }
+
+    public int Health { get; set; }
+
+    //the name of the type of holeable
+    public string holeableName { get; set; }
 }

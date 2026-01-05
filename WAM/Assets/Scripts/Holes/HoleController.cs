@@ -46,12 +46,7 @@ public class HoleController : MonoBehaviour, IActive, IBusListener
             }
         }
     }
-
-    public void SpawnSomethingInHole(int _holeID, IHoleable _ToSpawn)
-    {
-        holes[_holeID].SpawnEntity(_ToSpawn);
-    }
-
+    
     void OnHoleClicked(int _ID, IHole _hole)
     {
         model.TryHitHole(_ID, _hole);
