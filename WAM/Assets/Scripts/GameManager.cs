@@ -40,7 +40,15 @@ public class GameManager : MonoBehaviour
     HoleController holeController;
     [SerializeField]
     HoleFactory holeViewFactory;
-    IHoleModel holeModel;
+    IHoleModel holeModel;    
+    
+    //High Scores
+    [Header("Highscore Components")]
+    [SerializeField]
+    HighScoreController highScoreController;
+    [SerializeField]
+    HighScoreView highScoreView;
+    IHighScoreModel highScoreModel;
 
     private void Awake()
     {
@@ -65,6 +73,11 @@ public class GameManager : MonoBehaviour
         timerView.GetOnBus(bus);
 
         timerController.Initialize(timerView, timerModel);
+        
+        //Initializing Highscore system
+        highScoreModel = new HighScoreModel();
+
+        highScoreController.Initialize(highScoreView, highScoreModel);
 
 
         //Initializing menu system

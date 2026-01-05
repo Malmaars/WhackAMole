@@ -7,7 +7,6 @@ public class HoleController : MonoBehaviour, IActive, IBusListener
     IHoleModel model;
     HoleFactory factory;
 
-    public int holeAmount;
     List<HoleView> holes;
 
     public bool active { get; set; }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9074836153311611391
+--- !u!1 &3846653290646894864
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8284581347493820222}
-  - component: {fileID: 636909838916140969}
-  - component: {fileID: 7431119341330261449}
+  - component: {fileID: 6523569125698565965}
+  - component: {fileID: 5856556779244525725}
+  - component: {fileID: 1849522612500959971}
   m_Layer: 5
-  m_Name: Highscores
+  m_Name: Holes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8284581347493820222
+--- !u!224 &6523569125698565965
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9074836153311611391}
+  m_GameObject: {fileID: 3846653290646894864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,27 +37,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &636909838916140969
+--- !u!114 &5856556779244525725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9074836153311611391}
+  m_GameObject: {fileID: 3846653290646894864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a9d6d88890f56847b34c42dbed94945, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e44a8df157a93e4cae392b4902d9dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7431119341330261449
+  holeAmount: 1
+--- !u!114 &1849522612500959971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9074836153311611391}
+  m_GameObject: {fileID: 3846653290646894864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a3fdae07a656c44bd1ced2ec6e5f82, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ee1af1a6dd6a3c4a878e42cbb2015ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holePrefab: {fileID: 4946683452861023350, guid: 772d5f5f7f97ba34caf116a2ee0ff119, type: 3}
+  parent: {fileID: 6523569125698565965}
