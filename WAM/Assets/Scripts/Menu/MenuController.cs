@@ -33,28 +33,32 @@ public class MenuController : MonoBehaviour, IActive, IBusListener
         HighScoreButton.Clicked += ShowHighScores;
     }
 
-    void ShowMenu(IDomainEvent _event)
-    {
-        Enable();
-    }
-
     void StartGame()
     {
         model.StartGame();
-        Disable();
     }
 
     void ShowHighScores()
     {
         model.ShowHighScores();
-        Disable();
     }
 
 
     public void GetOnBus(IEventBus _bus)
     {
         eventBus = _bus;
-        eventBus.Subscribe<ShowMenuEvent>(ShowMenu);
+        eventBus.Subscribe<ShowMenuEvent>(EnableOnEvent);
+        eventBus.Subscribe<StartGameEvent>(DisableOnEvent);
+        eventBus.Subscribe<ShowHighScoresEvent>(DisableOnEvent);
+    }
+
+    void EnableOnEvent(IDomainEvent _event)
+    {
+        Enable();
+    }
+    void DisableOnEvent(IDomainEvent _event)
+    {
+        Disable();
     }
 
     public void Enable()

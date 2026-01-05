@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
         menuModel.GetOnBus(bus);
 
         menuController.Initialize(menuView, menuModel, startButton, highScoreButton);
+        menuController.GetOnBus(bus);
 
         bus.Publish(new ShowMenuEvent());
 

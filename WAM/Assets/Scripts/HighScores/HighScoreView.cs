@@ -18,10 +18,11 @@ public class HighScoreView : MonoBehaviour, IHighScoreView
 
     public void ClearHighScoreVisuals()
     {
-        while(content.childCount > 0)
+        for (int i = content.childCount - 1; i >= 0; i--)
         {
-            Destroy(content.GetChild(0));
+            Destroy(content.GetChild(i).gameObject);
         }
+        amountOfHighscores = 0;
     }
 
     public void AddHighScoreVisual(HighScoreData _highScore)

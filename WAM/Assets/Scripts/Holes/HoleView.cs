@@ -40,7 +40,6 @@ public class HoleView : MonoBehaviour
 
     void SetHoleAbleVisual(IHoleable _toSpawn)
     {
-        Debug.Log(_toSpawn.ResourcesVisual);
         holeAbleSprite.sprite = Resources.Load<Sprite>(_toSpawn.ResourcesVisual);
         holeAbleSprite.gameObject.SetActive(true);
     }
