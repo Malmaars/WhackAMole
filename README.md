@@ -23,6 +23,8 @@ I have used interfaces where I can, for some classes it could feel as a little o
 
 I added three different moles to show the ease of implementation. I can create a new mole, define what points they give (or theoretically more functionality) and it would work instantly. The only thing I'd need to change is to add it in the spawn pool for the holes.
 
+There is currently only the option to play with 6 holes and a timer of 30 seconds, but I implemented it so it's easy to add other modes as well.
+
 I considered to manage all clicking. Essentially making Unity buttons redundant, and managing all clicks via script. This would mean there would need to be less monobehaviours, and I wouldn't have to link the controllers and views of my systems to the UI elements inside Unity. This included giving clickable one of a few shapes, and assigning colliders through code.
 In theory I think this works fine, but it would require classes that use the IClickable interface to inherit from a class defining its shape (like a circle or a rectangle). I would like to avoid this, and use interface as much as possible.
 I also think that doing it like this would make it needlessly complicated for future developers wanting to expand on the game 
