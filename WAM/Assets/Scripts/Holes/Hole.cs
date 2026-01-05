@@ -32,7 +32,7 @@ public class Hole : IHole
 
         //give a penalty when hitting a hole that does not have a mole in it
         else
-            points -= 1;
+            points += 1;
 
         return points;
     }

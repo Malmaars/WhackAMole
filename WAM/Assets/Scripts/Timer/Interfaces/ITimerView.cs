@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public interface ITimerView: IActive, IBusListener
+public interface ITimerView: IActive, IBusListener, IVisualManager
 {
-    public GameObject[] Visuals {get;set;}
-
     public TextMeshProUGUI TimerText { get; set; }
 
     public void UpdateTimerVisual(float _currentTime);

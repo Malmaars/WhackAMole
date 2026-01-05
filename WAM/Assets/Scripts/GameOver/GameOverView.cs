@@ -1,34 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
+using System;
 
-public class ScoreView : MonoBehaviour, IScoreView, IBusListener
+public class GameOverView : MonoBehaviour, IGameOverView
 {
     public IEventBus eventBus { get; set; }
+
     public GameObject[] Visuals { get { return visuals; } set { visuals = value; } }
     public GameObject[] visuals;
+
+    public TMP_InputField nameInput;
+
+    public Action<string> OnNameChange { get; set; }
+
     public bool active { get; set; }
     public TextMeshProUGUI ScoreTMP { get { return scoreTMP; } set { scoreTMP = value; } }
 
     [SerializeField]
     TextMeshProUGUI scoreTMP;
-    public void ResetVisuals()
+
+    private void Start()
     {
-        scoreTMP.text = "0";
+        nameInput.onValueChanged.AddListener(OnInputChanged);
     }
 
-    public void UpdateScoreVisuals(int _points)
+    public void UpdateScoreVisuals(int _score)
     {
-        scoreTMP.text = _points.ToString();
+        ScoreTMP.text = _score.ToString();
+    }
+
+    void OnInputChanged(string _text)
+    {
+        OnNameChange.Invoke(_text);
     }
 
     public void GetOnBus(IEventBus _bus)
     {
         eventBus = _bus;
-        eventBus.Subscribe<StartGameEvent>(EnableOnEvent);
-        eventBus.Subscribe<ShowMenuEvent>(DisableOnEvent);
-        eventBus.Subscribe<EndGameEvent>(DisableOnEvent);
     }
 
     void DisableOnEvent(IDomainEvent _event)
@@ -41,16 +52,10 @@ public class ScoreView : MonoBehaviour, IScoreView, IBusListener
         Enable();
     }
 
-    void ShowVisuals()
+    public void Disable()
     {
-        foreach (GameObject ob in Visuals)
-        {
-            ob.SetActive(true);
-        }
-    }
-    void HideVisuals()
-    {
-        foreach (GameObject ob in Visuals)
+        active = false;
+        foreach (GameObject ob in visuals)
         {
             ob.SetActive(false);
         }
@@ -58,13 +63,10 @@ public class ScoreView : MonoBehaviour, IScoreView, IBusListener
 
     public void Enable()
     {
-        ShowVisuals();
         active = true;
-    }
-
-    public void Disable()
-    {
-        HideVisuals();
-        active = false;
+        foreach (GameObject ob in visuals)
+        {
+            ob.SetActive(true);
+        }
     }
 }

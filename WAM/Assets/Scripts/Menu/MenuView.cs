@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MenuView : MonoBehaviour, IMenuView
 {
-    public GameObject[] MenuVisuals { get { return menuVisuals; } set { menuVisuals = value; } }
-    public GameObject[] menuVisuals;
+    public GameObject[] Visuals { get { return visuals; } set { visuals = value; } }
+    public GameObject[] visuals;
 
     public bool active { get; set; }
 
@@ -13,7 +13,7 @@ public class MenuView : MonoBehaviour, IMenuView
     {
         active = false;
 
-        foreach (GameObject ob in MenuVisuals)
+        foreach (GameObject ob in Visuals)
         {
             ob.SetActive(false);
         }
@@ -22,7 +22,7 @@ public class MenuView : MonoBehaviour, IMenuView
     public void Enable()
     {
         active = true;
-        foreach (GameObject ob in MenuVisuals)
+        foreach (GameObject ob in Visuals)
         {
             ob.SetActive(true);
         }

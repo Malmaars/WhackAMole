@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMenuView: IActive, IVisualManager
+public interface IVisualManager
 {
+    public GameObject[] Visuals { get; set; }
 }

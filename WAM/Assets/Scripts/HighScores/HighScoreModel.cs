@@ -13,6 +13,29 @@ public class HighScoreModel : IHighScoreModel
     //The biggest problem with saving is that there needs to be a possibility that there can be duplicate names and scores
     //To solve this, I'll give each score a unique key. To make sure there is absolutely no possibility of a duplicate key, I'll make it the year, day, and time
 
+    public IEventBus eventBus { get; set; }
+
+    public void GetOnBus(IEventBus _bus)
+    {
+        eventBus = _bus;
+        eventBus.Subscribe<SubmitScoreEvent>(SaveHighScoreOnEvent);
+    }
+
+    void SaveHighScoreOnEvent(SubmitScoreEvent _event)
+    {
+        SaveHighScore(new HighScoreData(_event.Score, _event.Name));
+    }
+
+    public HighScoreData[] LoadHighScores()
+    {
+        HighScoreDataCollection saveData;
+        string saveContent = File.ReadAllText(SaveFileName());
+
+
+        saveData = JsonUtility.FromJson<HighScoreDataCollection>(saveContent);
+        return saveData.scores;
+    }
+
     public HighScoreData LoadHighScore(int _highScoreRank)
     {
         //Current plan: Save all highscores as an array that is ordered by score

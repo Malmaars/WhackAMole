@@ -57,6 +57,6 @@ public class ScoreModel : IScoreModel
 
     public void EndGame(IDomainEvent _event)
     {
-
+        eventBus.Publish(new EchoScoreEvent(Score));
     }
 }

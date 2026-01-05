@@ -49,6 +49,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     HighScoreView highScoreView;
     IHighScoreModel highScoreModel;
+    [SerializeField]
+    BasicMenuButton highScoreToMenuButton;
+    
+    //Game Over Screen
+    [Header("GameOver Components")]
+    [SerializeField]
+    GameOverController gameOverController;
+    [SerializeField]
+    GameOverView gameOverView;
+    IGameOverModel gameOverModel;
+    [SerializeField]
+    BasicMenuButton submitScoreButton;
 
     private void Awake()
     {
@@ -76,8 +88,19 @@ public class GameManager : MonoBehaviour
         
         //Initializing Highscore system
         highScoreModel = new HighScoreModel();
+        highScoreModel.GetOnBus(bus);
 
-        highScoreController.Initialize(highScoreView, highScoreModel);
+        highScoreController.Initialize(highScoreView, highScoreModel, highScoreToMenuButton);
+        highScoreController.GetOnBus(bus);
+       
+        //Initializing Game Over Screen System
+        gameOverModel = new GameOverModel();
+        gameOverModel.GetOnBus(bus);
+
+        gameOverController.Initialize(gameOverView, gameOverModel, submitScoreButton);
+        gameOverController.GetOnBus(bus);
+        gameOverView.GetOnBus(bus);
+
 
 
         //Initializing menu system
