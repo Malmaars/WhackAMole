@@ -953,5 +953,6 @@ MonoBehaviour:
   visuals:
   - {fileID: 104832181851759590}
   - {fileID: 2235904112844869820}
+  - {fileID: 4068376018148011743}
   content: {fileID: 4116467861783111462}
   highScoreVisualPrefab: {fileID: 4765638365845808180, guid: a0e3ac7203e811b489fe39e326822b68, type: 3}
