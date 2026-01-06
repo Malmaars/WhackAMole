@@ -24,8 +24,8 @@ The gamemanager acts to setup the classes in the game, and connect them where ne
 I have used interfaces where I can, for some classes it could feel as a little overkill, but it's nice to have the option for different implementations open.
 
 I added three different moles to show the ease of implementation. I can create a new mole, define what points they give (or theoretically more functionality) and it would work instantly. The only thing I'd need to change is to add it in the spawn pool for the holes.
-The black mole awards one point when hit, the red mole awards a negative point, and the blue awards one point when hit, but won't go away when hit (spam that mole!)
-Whenever you hit a hole with no mole in it, you get a negative point
+<br>The black mole awards one point when hit, the red mole awards a negative point, and the blue awards one point when hit, but won't go away when hit (spam that mole!)
+<br>Whenever you hit a hole with no mole in it, you get a negative point
 
 There is currently only the option to play with 6 holes and a timer of 30 seconds, but I implemented it so it's easy to add other modes as well.
 
